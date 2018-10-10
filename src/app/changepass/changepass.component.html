@@ -1,0 +1,119 @@
+<html>
+  <br> <br>
+
+  <body>
+
+      <div
+      class="helppls" 
+      style="padding-left: 42.5%">  
+     <br>
+      <header>
+        <h1>
+            Change Your Password
+        </h1>
+        
+        
+        
+        <form #up = "ngForm" (submit)="signupUser($event)">
+          <div 
+            class="form-group">
+            
+            <br>
+           
+            <label for="current_password">
+              <p 
+                style="color: darkslategray;  
+                margin-right: 4.7%; 
+                font-size: 115% ; 
+                margin: -1px">
+                 Current Password:
+              </p>
+            <input 
+              type="password" 
+              ngModel
+              required
+              maxlength="20"
+              minlength="8" 
+              #currentpassword="ngModel" 
+              name="currentpassword" 
+              placeholder="Current Password" 
+              id="currentpassword" > <br>
+              <div  class="alert alert-danger" *ngIf="!currentpassword.valid && currentpassword.dirty">
+                <div *ngIf="currentpassword.errors.required">Current Password is required.</div>
+                <div *ngIf="currentpassword.errors.minlength">Current Password should contain at least 8 characters.</div>
+              </div>
+              <br>   
+          </label>
+
+
+
+            <label for="password">
+              <p 
+                style="color: darkslategray;  
+                margin-right: 4.7%; 
+                font-size: 115% ; 
+                margin: -1px">
+                 New Password:
+              </p>
+            <input 
+              type="password" 
+              ngModel
+              required
+              maxlength="20"
+              minlength="8" 
+              #password="ngModel" 
+              name="password" 
+              placeholder="Password" 
+              id="password" > <br>
+              <div  class="alert alert-danger" *ngIf="!password.valid && password.dirty">
+                <div *ngIf="password.errors.required">New Password is required.</div>
+                <div *ngIf="password.errors.minlength">New Password should contain at least 8 characters.</div>
+              </div>
+              <br>   
+          </label>
+
+            
+
+            <label for="again">
+                <p 
+                  style="color: darkslategray;  
+                  margin-right: 4.7%; 
+                  font-size: 115% ; 
+                  margin: -1px">
+                  New Password Again:
+                </p>
+              <input 
+                type="password" 
+                ngModel
+                required
+                maxlength="20" 
+                #again="ngModel" 
+                name="again" 
+                placeholder="Password Again" 
+                id="again" > <br>
+               
+                <br>   
+            </label>  
+            <br> <br> <br>
+            <button 
+              class="btn btn-primary"
+              [disabled]="!(up.valid)">
+              Change Password
+            </button>
+            <br> <br>
+            <a routerLink="/loggedin"><button class="btn btn-danger">Turn Back</button></a>
+          </div>
+        </form>
+      </header>
+    </div> 
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

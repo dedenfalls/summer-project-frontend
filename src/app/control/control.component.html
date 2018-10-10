@@ -1,0 +1,81 @@
+  <html>
+  <body style="background-color:antiquewhite; text-align:center">
+    <br>
+
+    <img align="middle"
+    src="http://doggydiamond.ie/wp-content/uploads/2017/12/Welcome-PNG-HD.png" 
+    style="height: 100px; ">
+    <br> <br><br>
+    <h1 
+      style="font-size: 15pt; ">
+      Please enter your username and password
+  </h1>
+    <br> 
+    <div
+      class="helppls" 
+      style="padding-left: 42.5%">  
+      <header>
+        <br>
+        <p>
+            Username:
+        </p>
+        <form #f = "ngForm" (submit)="loginUser($event)">
+          <div 
+            class="form-group">
+            <label for="username">
+            <input 
+            class="us"
+            type="text" 
+            required
+            ngModel
+            name="username"
+            minlength="8"
+            maxlength="20"
+            #username="ngModel"
+            placeholder="Username"
+            id="username"> <br>
+            <div  class="alert alert-danger" *ngIf="!username.valid && (username.dirty || username.touched)">
+                <div *ngIf="username.errors.required">Username is required.</div>
+                <div *ngIf="username.errors.minlength">Username should contain at least 8 characters.</div>
+            </div>
+            <br>
+            </label>
+             <br>
+            <label for="password">
+              <p style="margin-right: 4.7%">
+                Password:
+              </p>
+            <input 
+              type="password"
+              class="pass" 
+              ngModel 
+              #password="ngModel"
+              required
+              minlength="8"
+              maxlength="20" 
+              name="password" 
+              placeholder="Password" 
+              id="password" > <br>
+              <div  class="alert alert-danger" *ngIf="!password.valid && (password.dirty || password.touched)">
+                  <div *ngIf="password.errors.required">Password is required.</div>
+                  <div *ngIf="password.errors.minlength">Password should contain at least 8 characters.</div>
+              </div>
+              <br>   
+          </label>
+
+            <br> <br> <br><br>
+            
+            <button 
+              class="btn btn-primary"
+              [disabled]="!(f.valid)">
+              Sign In
+            </button>
+            <br> <br>
+          </div>
+        </form>
+        <a routerLink="/signup"> Sign Up Now! </a>
+        <br> <br> <br>
+      </header>
+    </div> 
+  </body>
+</html>

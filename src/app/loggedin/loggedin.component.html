@@ -1,0 +1,22 @@
+
+<br> <br> <br> <br>
+<p>
+  You have successfully logged in.  
+
+  
+</p> <br> <br> 
+<h1>
+
+  Welcome {{user}} <br> <br>
+  <span *ngIf="admin=='true'">You are the admin</span>
+</h1>
+   <br> <br> <br>
+   <div *ngIf="admin=='true'"><a routerLink="/admin">Go to admin page</a> </div>
+  <br>
+  <a routerLink="/changepassword"><button class="btn btn-success" > 
+    Change Password
+  </button> </a> <br> <br>
+
+<button class="btn btn-success" (click)="onclick()">
+  Log Out
+</button>

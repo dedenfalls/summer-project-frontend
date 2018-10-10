@@ -1,0 +1,85 @@
+ <br> <br>
+<button class="btn btn-success" (click)="bisey()">Get All Users</button> <br> <br>
+
+
+<div class="container">
+    <h2>All Users Table</h2>
+        
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Is Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.is_admin}}</td>
+          <td><button class="button btn-danger" (click)="sil(user)"> Delete</button></td>
+          <td *ngIf="!user.is_admin"><button class="button btn-success" (click)="update(user)"> Update</button></td>
+          
+        
+          <td *ngIf="clickupdate && user.id==temp" style="text-align: left">
+            <div>
+            <form #f = "ngForm" (submit)="upUser($event,user)">
+              <div 
+                class="form-group">
+                <label for="username">
+                <input 
+                class="us"
+                type="text" 
+                required
+                ngModel
+                name="username"
+                minlength="8"
+                maxlength="20"
+                #username="ngModel"
+                placeholder="Username"
+                id="username">
+                <div  class="alert alert-danger" *ngIf="!username.valid && (username.dirty || username.touched)">
+                    <div *ngIf="username.errors.required">Username is required.</div>
+                    <div *ngIf="username.errors.minlength">Username should contain at least 8 characters.</div>
+                </div>
+             
+                </label>
+                &nbsp; &nbsp; <br>
+                <label for="password">
+                <input 
+                  type="password"
+                  class="pass" 
+                  ngModel 
+                  #password="ngModel"
+                  required
+                  minlength="8"
+                  maxlength="20" 
+                  name="password" 
+                  placeholder="Password" 
+                  id="password" > 
+                  <div  class="alert alert-danger" *ngIf="!password.valid && (password.dirty || password.touched)">
+                      <div *ngIf="password.errors.required">Password is required.</div>
+                      <div *ngIf="password.errors.minlength">Password should contain at least 8 characters.</div>
+                  </div>
+                </label>
+                  &nbsp; <br>
+                <button 
+                  class="btn btn-primary"
+                  [disabled]="!(f.valid)">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+          </td>
+
+        </tr>
+       
+      </tbody>
+    </table>
+    <br> <br> 
+    <a routerLink="/loggedin"><button class="btn btn-primary"> Go to Home Page </button> </a>
+  </div>

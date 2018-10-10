@@ -1,0 +1,26 @@
+body{
+    background-color:antiquewhite;
+}
+header{
+
+    background-image: url(../../assets/2957eb30e1c6964.jpg);
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid purple;
+    box-sizing: border-box;
+    padding: 10px
+    
+}
+h1{ 
+    margin-left: -2%;
+    padding: 0;
+    font-weight: bolder;
+    font-size: 18pt;
+    padding: 10px;
+    color: red;
+}
+.alert{
+    padding: 1px;
+
+}

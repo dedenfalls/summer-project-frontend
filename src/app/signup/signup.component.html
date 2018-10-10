@@ -1,0 +1,105 @@
+<html>
+  <br> <br>
+
+  <body>
+
+      <div
+      class="helppls" 
+      style="padding-left: 42.5%">  
+      <h1>
+          JOIN US NOW!
+        </h1> <br> 
+      <header>
+        
+        <p 
+        style=
+        "color: darkslategray;  margin-right: 122% ;font-size: 115% ; margin: -1px">
+            Username:
+        </p>
+        <form #up = "ngForm" (submit)="signupUser($event)">
+          <div 
+            class="form-group">
+            <label for="username">
+            <input 
+            type="text" 
+            required
+            ngModel
+            name="username"
+            minlength="8"
+            maxlength="20"
+            #username="ngModel"
+            placeholder="Username"
+            id="username">
+            </label>
+            <div  class="alert alert-danger" *ngIf="!username.valid && username.dirty">
+                <div *ngIf="username.errors.required">Username is required.</div>
+              <div *ngIf="username.errors.minlength">Username should contain at least 8 characters.</div>
+              </div>
+            <br> 
+           
+            <label for="password">
+              <p 
+                style="color: darkslategray;  
+                margin-right: 4.7%; 
+                font-size: 115% ; 
+                margin: -1px">
+                Password:
+              </p>
+            <input 
+              type="password" 
+              ngModel
+              required
+              maxlength="20"
+              minlength="8" 
+              #password="ngModel" 
+              name="password" 
+              placeholder="Password" 
+              id="password" > <br> 
+          </label>
+          <div  class="alert alert-danger" *ngIf="!password.valid && password.dirty">
+              <div *ngIf="password.errors.required">Password is required.</div>
+              <div *ngIf="password.errors.minlength">Password should contain at least 8 characters.</div>
+            </div>
+            
+
+            <label for="again">
+                <p 
+                  style="color: darkslategray;  
+                  margin-right: 4.7%; 
+                  font-size: 115% ; 
+                  margin: -1px">
+                  Password Again:
+                </p>
+              <input 
+                type="password" 
+                ngModel
+                required
+                maxlength="20" 
+                #again="ngModel" 
+                name="again" 
+                placeholder="Password Again" 
+                id="again" > <br> <br>   
+            </label>  
+            <br> <br> <br>
+            <button 
+              class="btn btn-primary"
+              [disabled]="!(up.valid)">
+              Sign up
+            </button>
+            <br> <br>
+            <a routerLink="/"><button class="btn btn-primary"> Go to Login Page </button> </a> 
+          </div>
+        </form>
+      </header>
+    </div> 
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
